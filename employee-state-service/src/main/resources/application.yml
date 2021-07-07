@@ -1,0 +1,30 @@
+server:
+  port: 8082
+kafka:
+  employee:
+    topic: employee
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:h2:mem:employeeDb;AUTO_SERVER=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      auto-offset-reset: latest
+      group-id: employee
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      max-poll-records: 1
+      client-id: employee-service
+      properties:
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: org.apache.kafka.common.serialization.StringDeserializer

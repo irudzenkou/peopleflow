@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.peopleflow</groupId>
+    <artifactId>peopleflow</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>common</module>
+        <module>employee-rest</module>
+        <module>employee-state-service</module>
+    </modules>
+
+    <properties>
+        <spring.boot.version>2.3.10.RELEASE</spring.boot.version>
+        <junit.jupiter.version>5.7.2</junit.jupiter.version>
+        <java.version>11</java.version>
+        <lombok.version>1.18.20</lombok.version>
+        <kafka.version>2.5.13.RELEASE</kafka.version>
+        <postgres.version>42.2.13</postgres.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>${kafka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgres.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
+                <scope>test</scope>
+            </dependency>
+            <!--            <dependency>-->
+            <!--                <groupId>org.junit.jupiter</groupId>-->
+            <!--                <artifactId>junit-jupiter-api</artifactId>-->
+            <!--                <version>${junit.jupiter.version}</version>-->
+            <!--                <scope>test</scope>-->
+            <!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.junit.jupiter</groupId>-->
+            <!--                <artifactId>junit-jupiter-engine</artifactId>-->
+            <!--                <version>${junit.jupiter.version}</version>-->
+            <!--                <scope>test</scope>-->
+            <!--            </dependency>-->
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <release>${java.version}</release>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
