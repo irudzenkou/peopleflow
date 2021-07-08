@@ -35,7 +35,7 @@ public class EmployeeControllerAdvice {
         log.error("Employee not found. id = {}", e.getEmployeeId(), e);
         String errorMessage = ResponseErrorMessageMapper.getResponseErrorMessage(EmployeeNotFoundException.class);
         ErrorResponse errorResponse = new ErrorResponse(errorMessage);
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
 
     @ExceptionHandler(Exception.class)
