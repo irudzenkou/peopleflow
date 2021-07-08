@@ -1,33 +1,21 @@
 server:
   port: 8081
 kafka:
-#  bootstrap-servers: localhost:9092
   employee:
-      topic: employee
-#    reply:
-#      topic: employee-reply
-
+    topic: employee
 spring:
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: none
   datasource:
-#    url: jdbc:h2:tcp://localhost:8082/mem:testdb;DB_CLOSE_DELAY=-1;MODE=MySQL
-    url: jdbc:h2:tcp://localhost:8082/mem:employeeDb;AUTO_SERVER=TRUE
-#    url: jdbc:h2:tcp://localhost/mem:employeeDb
-    driverClassName: org.h2.Driver
-    username: sa
-    password:
+    initialization-mode: always
+    platform: postgres
+    url: jdbc:postgresql://db:5432/peopleflow
+    username: postgres
+    password: postgres
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
     producer:
-      client-id: rest
+      client-id: api
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-#      properties:
-#        spring:
-#          json:
-#            add:
-#              type:
-#                headers: false

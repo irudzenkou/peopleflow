@@ -1,6 +1,7 @@
 package com.peopleflow.controller;
 
 import com.peopleflow.Exception.AddEmployeeException;
+import com.peopleflow.Exception.EmployeeNotFoundException;
 import com.peopleflow.Exception.UpdateEmployeeException;
 import com.peopleflow.model.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -14,16 +15,34 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class EmployeeControllerAdvice {
 
     @ExceptionHandler(AddEmployeeException.class)
-    public ResponseEntity<ErrorResponse> onNotFound(AddEmployeeException e) {
+    public ResponseEntity<ErrorResponse> onAddEmployeeException(AddEmployeeException e) {
         log.error(e.getMessage(), e);
-        ErrorResponse errorResponse = new ErrorResponse("Unable to add employee");
+        String errorMessage = ResponseErrorMessageMapper.getResponseErrorMessage(AddEmployeeException.class);
+        ErrorResponse errorResponse = new ErrorResponse(errorMessage);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
     }
 
     @ExceptionHandler(UpdateEmployeeException.class)
-    public ResponseEntity<ErrorResponse> onNotFound(UpdateEmployeeException e) {
+    public ResponseEntity<ErrorResponse> onUpdateEmployeeException(UpdateEmployeeException e) {
+        log.error("Unable to update employee state. id = {}, state = {}", e.getEmployeeId(), e.getState(), e);
+        String errorMessage = ResponseErrorMessageMapper.getResponseErrorMessage(UpdateEmployeeException.class);
+        ErrorResponse errorResponse = new ErrorResponse(errorMessage);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+    }
+
+    @ExceptionHandler(EmployeeNotFoundException.class)
+    public ResponseEntity<ErrorResponse> onEmployeeNotFoundException(EmployeeNotFoundException e) {
+        log.error("Employee not found. id = {}", e.getEmployeeId(), e);
+        String errorMessage = ResponseErrorMessageMapper.getResponseErrorMessage(EmployeeNotFoundException.class);
+        ErrorResponse errorResponse = new ErrorResponse(errorMessage);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> onGenericException(Exception e) {
         log.error(e.getMessage(), e);
-        ErrorResponse errorResponse = new ErrorResponse("Unable to update employee state");
+        String errorMessage = ResponseErrorMessageMapper.getResponseErrorMessage(Exception.class);
+        ErrorResponse errorResponse = new ErrorResponse(errorMessage);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
     }
 }

@@ -1,0 +1,27 @@
+server:
+  port: 8082
+kafka:
+  employee:
+    topic: employee
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    initialization-mode: always
+    platform: postgres
+    url: jdbc:postgresql://db:5432/peopleflow
+    username: postgres
+    password: postgres
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      auto-offset-reset: latest
+      group-id: employee
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      max-poll-records: 1
+      client-id: employee-service
+      properties:
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: org.apache.kafka.common.serialization.StringDeserializer

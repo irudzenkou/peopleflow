@@ -1,19 +1,16 @@
 package com.peopleflow.Exception;
 
 import com.peopleflow.core.EmployeeState;
+import lombok.Getter;
 
+@Getter
 public class UpdateEmployeeException extends RuntimeException {
+    String employeeId;
+    EmployeeState state;
 
-//    String id;
-//    EmployeeState state;
-//
-//    public UpdateEmployeeException(String id , EmployeeState state, Throwable e) {
-//        super(e);
-//        this.id = id;
-//        this.state = state;
-//    }
-
-    public UpdateEmployeeException(String id, EmployeeState state, Throwable e) {
-        super(String.format("Unable to update employee state. id = {}, state = {}", id, state), e);
+    public UpdateEmployeeException(String employeeId, EmployeeState state, Throwable e) {
+        super(e);
+        this.employeeId = employeeId;
+        this.state = state;
     }
 }

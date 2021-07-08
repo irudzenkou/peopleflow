@@ -12,7 +12,7 @@
     <modules>
         <module>common</module>
         <module>employee-rest</module>
-        <module>employee-state-service</module>
+        <module>employee-state</module>
     </modules>
 
     <properties>
@@ -54,18 +54,18 @@
                 </exclusions>
                 <scope>test</scope>
             </dependency>
-            <!--            <dependency>-->
-            <!--                <groupId>org.junit.jupiter</groupId>-->
-            <!--                <artifactId>junit-jupiter-api</artifactId>-->
-            <!--                <version>${junit.jupiter.version}</version>-->
-            <!--                <scope>test</scope>-->
-            <!--            </dependency>-->
-            <!--            <dependency>-->
-            <!--                <groupId>org.junit.jupiter</groupId>-->
-            <!--                <artifactId>junit-jupiter-engine</artifactId>-->
-            <!--                <version>${junit.jupiter.version}</version>-->
-            <!--                <scope>test</scope>-->
-            <!--            </dependency>-->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

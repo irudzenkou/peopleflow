@@ -8,12 +8,14 @@ import com.peopleflow.dao.EmployeeRepository;
 import com.peopleflow.domain.Employee;
 import com.peopleflow.service.EmployeeService;
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import org.springframework.kafka.core.KafkaTemplate;
 
 import java.util.Optional;
 import java.util.UUID;
 
 @AllArgsConstructor
+@Setter
 public class KafkaEmployeeService implements EmployeeService {
 
     private KafkaTemplate<String, EmployeeDto> kafkaTemplate;

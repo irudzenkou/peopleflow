@@ -12,17 +12,9 @@ import org.springframework.kafka.core.KafkaTemplate;
 @Configuration
 public class ApplicationConfig {
 
-//    @Autowired
-//    KafkaTemplate<String, EmployeeDto> employeeKafkaTemplate;
-
     @Value(value = "${kafka.employee.topic}")
     private String employeeTopic;
 
-    //    @Bean
-//    public EmployeeService employeeService() {
-//        return new KafkaEmployeeService(employeeKafkaTemplate, employeeTopic);
-//    }
-//
     @Bean
     public EmployeeService employeeService(KafkaTemplate<String, EmployeeDto> employeeKafkaTemplate,
                                            EmployeeRepository employeeRepository) {
