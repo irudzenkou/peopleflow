@@ -43,17 +43,17 @@ Being concerned about developing high quality, resilient software, giving the fa
 
 >To review
 
-    1) Project structure should conform to best practices having all layers supposed by it
-    2) Code should following known best practises: SOLID, have abstraction layer, loosely coupled, readable, extendable, no code duplications etc.)
-    3) Unit tests should be provided for main parts of application
-    4) Easy to build, run, deploy, debug
+- Project structure should conform to best practices having all layers supposed by it
+- Code should following known best practises: SOLID, have abstraction layer, loosely coupled, readable, extendable, no code duplications etc.)
+- Unit tests should be provided for main parts of application
+- Easy to build, run, deploy, debug
 
 >production-readiness
 
-    1) All changes should be reflected in user stories and passed DoD conditions
-    2) Changes passed all testing steps supposed by project rules: Unit, integration, automation, manual, e2e, performance, etc
-    3) Solution is tested on security vulnerabilities
-    3) Builds and deployments at all environments are done same way via CI/CD tools
+- All changes should be reflected in user stories and passed DoD conditions
+- Changes passed all testing steps supposed by project rules: Unit, integration, automation, manual, e2e, performance, etc
+- Solution is tested on security vulnerabilities
+- Builds and deployments at all environments are done same way via CI/CD tools
 
 <a name="third"> </a> </a> 
 
