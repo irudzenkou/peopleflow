@@ -41,7 +41,7 @@ Being concerned about developing high quality, resilient software, giving the fa
 - Suggest what will be your silver bullet, concerns while you're reviewing this part of the software that you need to make sure is being there.
 - What the production-readiness criteria that you consider for this solution
 
->To review
+>Review
 
 - Project structure should conform to best practices having all layers supposed by it
 - Code should following known best practises: SOLID, have abstraction layer, loosely coupled, readable, extendable, no code duplications etc.)
