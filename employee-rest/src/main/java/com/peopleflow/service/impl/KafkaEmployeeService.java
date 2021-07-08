@@ -1,7 +1,7 @@
 package com.peopleflow.service.impl;
 
-import com.peopleflow.Exception.AddEmployeeException;
-import com.peopleflow.Exception.UpdateEmployeeException;
+import com.peopleflow.exception.AddEmployeeException;
+import com.peopleflow.exception.UpdateEmployeeException;
 import com.peopleflow.core.EmployeeDto;
 import com.peopleflow.core.EmployeeState;
 import com.peopleflow.dao.EmployeeRepository;

@@ -1,8 +1,8 @@
 package com.peopleflow.controller;
 
-import com.peopleflow.Exception.AddEmployeeException;
-import com.peopleflow.Exception.EmployeeNotFoundException;
-import com.peopleflow.Exception.UpdateEmployeeException;
+import com.peopleflow.exception.AddEmployeeException;
+import com.peopleflow.exception.EmployeeNotFoundException;
+import com.peopleflow.exception.UpdateEmployeeException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +17,7 @@ public class ResponseErrorMessageMapper {
 
     }
 
-    public static String getResponseErrorMessage(Class clazz) {
+    public static String getResponseErrorMessage(Class<? extends Exception> clazz) {
         if (clazz == null) {
             return null;
         }

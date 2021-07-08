@@ -1,4 +1,4 @@
-package com.peopleflow.Exception;
+package com.peopleflow.exception;
 
 import lombok.Getter;
 

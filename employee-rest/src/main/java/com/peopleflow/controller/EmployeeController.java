@@ -1,6 +1,6 @@
 package com.peopleflow.controller;
 
-import com.peopleflow.Exception.EmployeeNotFoundException;
+import com.peopleflow.exception.EmployeeNotFoundException;
 import com.peopleflow.core.EmployeeDto;
 import com.peopleflow.core.EmployeeState;
 import com.peopleflow.model.AddEmployeeRequest;

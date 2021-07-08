@@ -1,8 +1,8 @@
 package com.peopleflow.controller;
 
-import com.peopleflow.Exception.AddEmployeeException;
-import com.peopleflow.Exception.EmployeeNotFoundException;
-import com.peopleflow.Exception.UpdateEmployeeException;
+import com.peopleflow.exception.AddEmployeeException;
+import com.peopleflow.exception.EmployeeNotFoundException;
+import com.peopleflow.exception.UpdateEmployeeException;
 import com.peopleflow.model.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
