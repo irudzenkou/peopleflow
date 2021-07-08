@@ -58,3 +58,15 @@ Being concerned about developing high quality, resilient software, giving the fa
 <a name="third"> </a> </a> 
 
 ## Third Part
+
+Another Team in the company is building another service, This service will be used to provide some statistics of the employees, this could be used to list the number of employees per country, other types of statistics which is very vague at the moment.
+- Please think of a solution without any further implementation that could be able to integrate on top of your service, including the integration pattern will be used, the database storage etc.
+A high-level architecture diagram is sufficient to present this.
+
+> Solution
+
+In this solution same topic is used for all interested services which may fetch data and construct any convenient schema for doing their logic.
+
+Another way is to add one more Kafka topic and push added employees there population with any other data third party may be interested in.
+
+![](images/integration.png)
