@@ -67,6 +67,6 @@ A high-level architecture diagram is sufficient to present this.
 
 In this solution same topic is used for all interested services which may fetch data and construct any convenient schema for doing their logic.
 
-Another way is to add one more Kafka topic and push added employees there population with any other data third party may be interested in.
+Another way is to add one more Kafka topic and push added employees there populating with any other data third party may be interested in.
 
 ![](images/integration.png)
