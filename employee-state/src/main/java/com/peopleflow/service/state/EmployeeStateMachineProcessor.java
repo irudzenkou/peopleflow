@@ -22,15 +22,15 @@ public class EmployeeStateMachineProcessor implements EmployeeStateProcessor {
 
     @Override
     public void process(EmployeeDto employee) throws Exception {
-        String employeeId = employee.getId();
+        String id = employee.getId();
         StateMachine<EmployeeState, EmployeeEvent> stateMachine = stateMachineFactory.getStateMachine();
-        stateMachine = persister.restore(stateMachine, employeeId);
+        stateMachine = persister.restore(stateMachine, id);
 
         stateMachine.getExtendedState().getVariables().put(EMPLOYEE_OBJECT, employee);
         EmployeeEvent event = employee.getState() == null ? EmployeeEvent.ADD : getEmployeeEventForState(employee.getState());
         stateMachine.sendEvent(event);
 
-        persister.persist(stateMachine, employeeId);
+        persister.persist(stateMachine, id);
     }
 
     private EmployeeEvent getEmployeeEventForState(EmployeeState state) {

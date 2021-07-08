@@ -20,7 +20,6 @@ public class AddEmployeeAction implements Action<EmployeeState, EmployeeEvent> {
     @Override
     public void execute(StateContext<EmployeeState, EmployeeEvent> stateContext) {
         EmployeeDto employee = (EmployeeDto) stateContext.getStateMachine().getExtendedState().getVariables().get(EMPLOYEE_OBJECT);
-        employee.setState(EmployeeState.ADDED);
         employeeService.createNewEmployee(employee);
     }
 }
